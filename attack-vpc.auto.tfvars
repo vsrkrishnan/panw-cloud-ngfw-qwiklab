@@ -42,5 +42,6 @@ attack-vpc-instances = [
     ami           = "ami-03fa4afc89e4a8a09"
     instance_type = "t2.micro"
     subnet        = "subnet"
+    setup-file    = "att-app-svr.sh"
   }
 ]

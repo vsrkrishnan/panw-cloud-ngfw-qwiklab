@@ -113,6 +113,7 @@ resource "aws_instance" "this" {
 
   ami                         = each.value.ami
   instance_type               = each.value.instance_type
+  user_data                   = file(each.value.setup-file)
   subnet_id                   = local.subnet_ids["${var.prefix-name-tag}${var.vpc.name}-${each.value.subnet}"]
   security_groups             = local.sg-ids
   associate_public_ip_address = true
