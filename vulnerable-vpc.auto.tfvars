@@ -34,11 +34,16 @@ vulnerable-vpc-security-groups = [
       {
         description = "Permit Port 80 Public"
         type        = "ingress", from_port = "8080", to_port = "8080", protocol = "tcp"
-        cidr_blocks = ["10.2.1.0/32"]
+        cidr_blocks = ["10.2.0.0/16"]
       },
       {
         description = "Permit Port 22 Public"
         type        = "ingress", from_port = "22", to_port = "22", protocol = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+      },
+      {
+        description = "Permit ICMP Public"
+        type        = "ingress", from_port = "0", to_port = "0", protocol = "1"
         cidr_blocks = ["0.0.0.0/0"]
       }
     ]

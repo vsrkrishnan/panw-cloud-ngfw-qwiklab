@@ -1,7 +1,7 @@
 
-region              = "ap-south-1"
+region              = "us-west-1"
 prefix-name-tag     = "cngfw-"
-ssh-key-name        = "my-key-pair"
+ssh-key-name        = "cngfw-key-pair"
 
 global_tags         = {
   managedBy  = "Terraform"
