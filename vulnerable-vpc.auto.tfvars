@@ -19,7 +19,7 @@ vulnerable-vpc-subnets = [
 
 vulnerable-vpc-security-groups = [
   {
-    name = "sg"
+    name = "vul-svr-sg"
     rules = [
       {
         description = "Permit All traffic outbound"
@@ -32,7 +32,7 @@ vulnerable-vpc-security-groups = [
         cidr_blocks = ["0.0.0.0/0"]
       },
       {
-        description = "Permit Port 80 Public"
+        description = "Permit Port 8080"
         type        = "ingress", from_port = "8080", to_port = "8080", protocol = "tcp"
         cidr_blocks = ["10.2.0.0/16"]
       },
@@ -43,8 +43,8 @@ vulnerable-vpc-security-groups = [
       },
       {
         description = "Permit ICMP Public"
-        type        = "ingress", from_port = "0", to_port = "0", protocol = "1"
-        cidr_blocks = ["0.0.0.0/0"]
+        type        = "ingress", from_port = "0", to_port = "0", protocol = "icmp"
+        cidr_blocks = ["10.2.0.0/16"]
       }
     ]
   }
@@ -53,7 +53,6 @@ vulnerable-vpc-security-groups = [
 vulnerable-vpc-instances = [
   {
     name          = "vul-app-server"
-    ami           = "ami-03fa4afc89e4a8a09"
     instance_type = "t2.micro"
     subnet        = "subnet"
     setup-file    = "vul-app-svr.sh"

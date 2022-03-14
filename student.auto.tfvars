@@ -1,5 +1,5 @@
 
-region              = "us-west-1"
+region              = "us-east-1"
 prefix-name-tag     = "cngfw-"
 ssh-key-name        = "cngfw-key-pair"
 

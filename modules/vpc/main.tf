@@ -108,18 +108,38 @@ resource "aws_security_group" "this" {
   }
 }
 
+data "aws_ami" "latest_ecs" {
+  most_recent = true
+  owners = ["591542846629"] # AWS
+
+  filter {
+      name   = "name"
+      values = ["*amazon-ecs-optimized"]
+  }
+
+  filter {
+      name   = "virtualization-type"
+      values = ["hvm"]
+  }
+}
+
 resource "aws_instance" "this" {
   for_each = { for instance in var.ec2-instances: instance.name => instance }
 
-  ami                         = each.value.ami
+  ami                         = data.aws_ami.latest_ecs.id
   instance_type               = each.value.instance_type
   user_data                   = file(each.value.setup-file)
   subnet_id                   = local.subnet_ids["${var.prefix-name-tag}${var.vpc.name}-${each.value.subnet}"]
   security_groups             = local.sg-ids
-  associate_public_ip_address = true
   key_name                    = var.ssh-key-name
 
   tags = merge({ Name = "${var.prefix-name-tag}${each.value.name}" }, var.global_tags)
+}
+
+resource "aws_eip" "elasticip" {
+    for_each = { for key, instance in aws_instance.this: key => instance }
+
+  instance = each.value.id
 }
 
 output "vpc_details" {

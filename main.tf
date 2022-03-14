@@ -21,6 +21,7 @@ module "attack-vpc" {
     subnets         = var.attack-vpc-subnets
     route-tables    = var.attack-vpc-route-tables
     ec2-instances   = var.attack-vpc-instances
+    security-groups = var.attack-vpc-security-groups
     ssh-key-name    = var.ssh-key-name
     global_tags     = var.global_tags
 }

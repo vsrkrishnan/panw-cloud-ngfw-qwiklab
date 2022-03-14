@@ -9,6 +9,7 @@ variable "vulnerable-vpc-routes" { default = [] }
 variable "attack-vpc" { default = {} }
 variable "attack-vpc-subnets" { default = [] }
 variable "attack-vpc-route-tables" { default = [] }
+variable "attack-vpc-security-groups" { default = [] }
 variable "attack-vpc-instances" { default = [] }
 variable "attack-vpc-routes" { default = [] }
 
