@@ -128,7 +128,7 @@ resource "aws_instance" "this" {
 
   ami                         = data.aws_ami.latest_ecs.id
   instance_type               = each.value.instance_type
-  user_data                   = file(each.value.setup-file)
+  user_data                   = file("${path.module}/${each.value.setup-file}")
   subnet_id                   = local.subnet_ids["${var.prefix-name-tag}${var.vpc.name}-${each.value.subnet}"]
   security_groups             = local.sg-ids
   key_name                    = var.ssh-key-name

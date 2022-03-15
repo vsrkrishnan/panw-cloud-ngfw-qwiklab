@@ -1,7 +1,7 @@
 provider "aws" { region = var.region }
 
 module "vulnerable-vpc" {
-    source           = "./modules/vpc"
+    source           = "../modules/vpc"
     vpc              = var.vulnerable-vpc
     prefix-name-tag  = var.prefix-name-tag
     region           = var.region
@@ -14,7 +14,7 @@ module "vulnerable-vpc" {
 }
 
 module "attack-vpc" {
-    source          = "./modules/vpc"
+    source          = "../modules/vpc"
     vpc             = var.attack-vpc
     prefix-name-tag = var.prefix-name-tag
     region          = var.region
@@ -27,13 +27,13 @@ module "attack-vpc" {
 }
 
 module "security-vpc" {
-    source = "./modules/vpc"
-    vpc = var.security-vpc
+    source          = "../modules/vpc"
+    vpc             = var.security-vpc
     prefix-name-tag = var.prefix-name-tag
-    region = var.region
-    subnets = var.security-vpc-subnets
-    route-tables = var.security-vpc-route-tables
-    global_tags = var.global_tags
+    region          = var.region
+    subnets         = var.security-vpc-subnets
+    route-tables    = var.security-vpc-route-tables
+    global_tags     = var.global_tags
 }
 
 locals {
@@ -45,7 +45,7 @@ locals {
 }
 
 module "transit-gateway" {
-  source          = "./modules/transit-gateway"
+  source          = "../modules/transit-gateway"
   transit-gateway = var.transit-gateway
   prefix-name-tag = var.prefix-name-tag
   global_tags     = var.global_tags
@@ -55,17 +55,9 @@ module "transit-gateway" {
 }
 
 module "vpc-routes" {
-  source              = "./modules/vpc_routes"
+  source              = "../modules/vpc_routes"
   vpc-routes          = merge(var.vulnerable-vpc-routes, var.attack-vpc-routes, var.security-vpc-routes)
   vpcs                = local.vpcs
   tgw-ids             = module.transit-gateway.tgw-ids
   prefix-name-tag     = var.prefix-name-tag
-}
-
-output "vpc_details" {
-  value = local.vpcs
-}
-
-output "vpc-routes" {
-  value = module.vpc-routes.vpc-routes
 }
