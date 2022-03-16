@@ -26,6 +26,7 @@ function terraform-install() {
     echo "Installed: `${HOME}/bin/terraform version`"
 }
 
+install-prerequisites
 terraform-install
 
 # Assuming that this setup script is being run from the cloned github repo, changing the current working directory to one from where Terraform will deploy the lab resources.
