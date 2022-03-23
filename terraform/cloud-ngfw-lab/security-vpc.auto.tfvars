@@ -10,7 +10,7 @@ security-vpc = {
 
 security-vpc-route-tables = [
   { name = "cngfw-rt", "subnet" = "subnet" },
-  { name = "tgw-rt", "subnet" = "" }
+  { name = "tgw-rt", "subnet" = "tgw-subnet" }
 ]
 
 security-vpc-routes = {

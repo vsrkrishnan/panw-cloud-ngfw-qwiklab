@@ -3,7 +3,6 @@
 TERRAFORM_VERSION="1.1.7"
 
 function install-prerequisites() {
-    sudo yum install -y git
     sudo yum install -y jq
     sudo yum install -y wget
 }
