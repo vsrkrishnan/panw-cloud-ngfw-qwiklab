@@ -1,6 +1,6 @@
 # Blocking a Log4J Attack with Palo Alto Networks Cloud NGFW
 ![Palo Alto Networks Logo](/images/PaloAltoNetworksLogo.png)
-# Intreoduction
+# Introduction
 The objective of this project is to provide a way to deploy a reference architecture of a Cloud NGFW clustered deployment on AWS through QwikLabs. Ideally, the Terraform scripts included in this project should allow you to deploy the required cloud resources from anywhere. However, for the documentation of this project, we will list down the steps for the same as accessed from QwikLabs.
 
 The contents of this Github repository helps to deploy a reference architecture of a Cloud NGFW Clustered deployment on AWS. It includes
@@ -77,11 +77,11 @@ Follow the Cloud NGFW Configuration Guide to
 - Create a NGFW Resource
 
   - Make sure to attach it to the sec-vpc (Security VPC).
-  - Make sure to attach it to the sec-vpc-subnet (Security VPC Subnet). **Not the TGW Subnet**
+  - Make sure to attach it to the sec-vpc-subnet (Security VPC Subnet). [**Not the TGW Subnet**]
 ## Add the Route to the Cloud NGFW Endpoint
 Once the NGFW resources have been created, this will also create a Gateway Load Balancer Endpoint in the Security VPC in your AWS account. You would need to add a route to the same to allow access between the App VPCs.
 - Navigate to VPC Console -> Route Tables
-- Identify the *Prefix*-sec-vpc-tgw-rt Route Table and Edit Routes.
+- Identify the sec-vpc-tgw-rt Route Table and Edit Routes.
 - Add a Route with Destination as *0.0.0.0/0* and Target as the Gateway Load Balancer Endpoint created by the Cloud NGFW service.
 ## Perform the Log4J Attack
 WIP
