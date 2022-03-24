@@ -83,9 +83,5 @@ Once the NGFW resources have been created, this will also create a Gateway Load 
 - Navigate to VPC Console -> Route Tables
 - Identify the sec-vpc-tgw-rt Route Table and Edit Routes.
 - Add a Route with Destination as *0.0.0.0/0* and Target as the Gateway Load Balancer Endpoint created by the Cloud NGFW service.
-## Perform the Log4J Attack
-WIP
-## Update the Security Profiles on the Cloud NGFW
-WIP
-## Attempt to perform the Log4J Attack
-WIP
+
+The Reference Architecture for Cloud NGFW has been deployed successfully. Go ahead and attempt the Log4J Attack to view the Cloud NGFW in action.
