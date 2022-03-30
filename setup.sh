@@ -19,7 +19,7 @@ function terraform-install() {
 
     # Download and install Terraform v1.1.7 as that is the version used for the development of this code-base.
     # TODO: Once Base and Ceiling versions have been validated, the code here will be modified to download the Ceiling version of terraform as required by the scripts in this code-base.
-    mkdir /home/ec2-user/bin/ && cd /home/ec2-user/bin/ && wget $TERRAFORM_DOWNLOAD_URL && unzip $TERRAFORM_DOWNLOAD_FILE && rm $TERRAFORM_DOWNLOAD_FILE
+    mkdir ${HOME}/bin/ && cd ${HOME}/bin/ && wget $TERRAFORM_DOWNLOAD_URL && unzip $TERRAFORM_DOWNLOAD_FILE && rm $TERRAFORM_DOWNLOAD_FILE
 
     # Display an confirmation of the successful installation of Terraform.
     echo "Installed: `${HOME}/bin/terraform version`"

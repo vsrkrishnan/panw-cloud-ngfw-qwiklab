@@ -75,7 +75,6 @@ Follow the Cloud NGFW Configuration Guide to
   - In the RuleStack, make sure to allow everything initially.
   - Disable all the Security Profiles. This is required for demonstrating the Log4J attack.
 - Create a NGFW Resource
-
   - Make sure to attach it to the sec-vpc (Security VPC).
   - Make sure to attach it to the sec-vpc-subnet (Security VPC Subnet). [**Not the TGW Subnet**]
 ## Add the Route to the Cloud NGFW Endpoint
