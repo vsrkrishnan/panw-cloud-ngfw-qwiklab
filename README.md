@@ -44,17 +44,13 @@ git clone https://github.com/vsrkrishnan/panw-cloud-ngfw-qwiklab.git
 ```
 cd panw-cloud-ngfw-qwiklab
 ```
-- Open the *student.auto.tfvars* file and update the *region*, *ssh-key-name* and the *prefix-name-tag* variables as required for the lab.
-```
-vi terraform/cloud-ngfw-lab/student.auto.tfvars
-```
 - Run the setup script included in the git root directory.
 ```
 ./setup.sh
 ```
 - Wait until the Cloud Resource deployment is complete.
 ## Review the deployed cloud resources
-Once the setup is completed successfully, go to each section of the deployed resources to review the resources. You can filter them using the *prefix-name-tag* that you had filled in the *student.auto.tfvars* file.
+Once the setup is completed successfully, go to each section of the deployed resources to review the resources. You can filter them using the *qwikLABS* prefix.
 Following is a list of the resources that will be deployed through the setup;
 | Resource | Quantity |
 | -------- | -------- |
