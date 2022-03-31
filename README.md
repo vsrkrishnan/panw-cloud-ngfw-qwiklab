@@ -31,6 +31,7 @@ For the purpose of this lab, we will use AWS CloudShell for deploying the AWS Cl
 - Search for cloudshell in top search bar
 - Close out of the Intro Screen
 - Allow a few moments for it to initialize
+> Make sure that the AWS Region is the one on which you intend to deploy your cloud resources. Since IAM is a *Global* feature, it has been noted that the Region may sometimes change during transition from the IAM section to CloudShell.
 ### Clone the Git Repository
 Clone the Repository with the terraform to deploy
 ```
